@@ -7,6 +7,6 @@ jobs:
     - uses: actions/checkout@v3
     - uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{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}}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
         publish_branch: main
