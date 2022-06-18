@@ -1,0 +1,15 @@
+{
+  "name": "Code Site",
+  "short_name": "Code Site",
+  "start_url": "/codesite/",
+  "scope": "/codesite/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/codesite/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}
