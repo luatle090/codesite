@@ -1,0 +1,4 @@
+baseURL = 'https://luatle090.github.io/codesite/'
+languageCode = 'vi-vn'
+title = 'Code Site'
+theme = 'hugo-book'
