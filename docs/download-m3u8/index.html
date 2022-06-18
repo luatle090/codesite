@@ -1,239 +1,108 @@
-<!DOCTYPE html>
-<html lang="vi-vn" dir="ltr">
+<!doctype html><html lang=vi-vn dir=ltr>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="ffmpeg -i &#34;url/list.m3u8&#34; -map p:1 -c copy -bsf:a aac_adtstoasc &#34;/home/file/video.mp4&#34; với -map p:1 để chọn trong danh sách, bắt đầu từ 0
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="ffmpeg -i &#34;url/list.m3u8&#34; -map p:1 -c copy -bsf:a aac_adtstoasc &#34;/home/file/video.mp4&#34; với -map p:1 để chọn trong danh sách, bắt đầu từ 0
 #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=400000,NAME=&#34;low&#34; size1.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=800000,NAME=&#34;med&#34; size2.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=1900000,NAME=&#34;best&#34; size3.m3u8 chuyển từ ts sang mp4
--bsf:a aac_adtstoasc ">
-<meta name="theme-color" content="#FFFFFF">
-<meta name="color-scheme" content="light dark"><meta property="og:title" content="How to download .m3u8" />
+-bsf:a aac_adtstoasc   ">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="How to download .m3u8">
 <meta property="og:description" content="ffmpeg -i &#34;url/list.m3u8&#34; -map p:1 -c copy -bsf:a aac_adtstoasc &#34;/home/file/video.mp4&#34; với -map p:1 để chọn trong danh sách, bắt đầu từ 0
 #EXTM3U #EXT-X-VERSION:3 #EXT-X-STREAM-INF:BANDWIDTH=400000,NAME=&#34;low&#34; size1.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=800000,NAME=&#34;med&#34; size2.m3u8 #EXT-X-STREAM-INF:BANDWIDTH=1900000,NAME=&#34;best&#34; size3.m3u8 chuyển từ ts sang mp4
--bsf:a aac_adtstoasc " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://luatle090.github.io/codesite/docs/download-m3u8/" /><meta property="article:section" content="docs" />
-
-<meta property="article:modified_time" content="2022-06-18T18:26:35+07:00" />
-
+-bsf:a aac_adtstoasc   ">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luatle090.github.io/codesite/docs/download-m3u8/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2022-06-18T21:13:40+07:00">
 <title>How to download .m3u8 | Code Site</title>
-<link rel="manifest" href="/codesite/manifest.json">
-<link rel="icon" href="/codesite/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/codesite/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css" integrity="sha256-gsXb0jRHzuC0wqo&#43;0Izglh&#43;qQOH6Nw7uT4yfAuDUa18=" crossorigin="anonymous">
-  <script defer src="/codesite/flexsearch.min.js"></script>
-  <script defer src="/codesite/en.search.min.3a37d45fe1c94a66c73bbcf9296cd6dc76e9fc552786b091a6b849f9cf67c8b4.js" integrity="sha256-OjfUX&#43;HJSmbHO7z5KWzW3Hbp/FUnhrCRprhJ&#43;c9nyLQ=" crossorigin="anonymous"></script>
-<!--
-Made with Book Theme
-https://github.com/alex-shpak/hugo-book
--->
-  
+<link rel=manifest href=/codesite/manifest.json>
+<link rel=icon href=/codesite/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/codesite/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
+<script defer src=/codesite/flexsearch.min.js></script>
+<script defer src=/codesite/en.search.min.e8e8e9de336096fca803684631537fe3ba8244da98ef8e111bdddb4dbd629706.js integrity="sha256-6Ojp3jNglvyoA2hGMVN/47qCRNqY744RG93bTb1ilwY=" crossorigin=anonymous></script>
 </head>
-<body dir="ltr">
-  <input type="checkbox" class="hidden toggle" id="menu-control" />
-  <input type="checkbox" class="hidden toggle" id="toc-control" />
-  <main class="container flex">
-    <aside class="book-menu">
-      <div class="book-menu-content">
-        
-  <nav>
-<h2 class="book-brand">
-  <a class="flex align-center" href="/codesite/"><span>Code Site</span>
-  </a>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/codesite/><span>Code Site</span>
+</a>
 </h2>
-
-
-<div class="book-search">
-  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner hidden"></div>
-  <ul id="book-search-results"></ul>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/codesite/docs/download-m3u8/" class="active">How to download .m3u8</a>
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-  
-
-  
-    <a href="/codesite/docs/java-thread/" class="">Java Thread</a>
-  
-
-        </li>
-      
-    
-  </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<ul>
+<li>
+<a href=/codesite/docs/download-m3u8/ class=active>How to download .m3u8</a>
+</li>
+<li>
+<a href=/codesite/docs/java-thread/>Java Thread</a>
+</li>
+<li>
+<a href=/codesite/docs/liner/>Liner</a>
+</li>
+</ul>
 </nav>
-
-
-
-
-  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
-
-
- 
-      </div>
-    </aside>
-
-    <div class="book-page">
-      <header class="book-header">
-        
-  <div class="flex align-center justify-between">
-  <label for="menu-control">
-    <img src="/codesite/svg/menu.svg" class="book-icon" alt="Menu" />
-  </label>
-
-  <strong>How to download .m3u8</strong>
-
-  <label for="toc-control">
-    
-    <img src="/codesite/svg/toc.svg" class="book-icon" alt="Table of Contents" />
-    
-  </label>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 </div>
-
-
-  
-  <aside class="hidden clearfix">
-    
-  
-<nav id="TableOfContents"></nav>
-
-
-
-  </aside>
-  
- 
-      </header>
-
-      
-      
-  <article class="markdown"><pre tabindex="0"><code>ffmpeg -i &#34;url/list.m3u8&#34; -map p:1 -c copy -bsf:a aac_adtstoasc &#34;/home/file/video.mp4&#34;
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/codesite/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>How to download .m3u8</strong>
+<label for=toc-control>
+<img src=/codesite/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents></nav>
+</aside>
+</header>
+<article class=markdown><pre tabindex=0><code>ffmpeg -i &quot;url/list.m3u8&quot; -map p:1 -c copy -bsf:a aac_adtstoasc &quot;/home/file/video.mp4&quot;
 </code></pre><p>với -map p:1 để chọn trong danh sách, bắt đầu từ 0</p>
-<pre tabindex="0"><code>#EXTM3U
+<pre tabindex=0><code>#EXTM3U
 
 #EXT-X-VERSION:3
 
-#EXT-X-STREAM-INF:BANDWIDTH=400000,NAME=&#34;low&#34;
+#EXT-X-STREAM-INF:BANDWIDTH=400000,NAME=&quot;low&quot;
 
 size1.m3u8
 
-#EXT-X-STREAM-INF:BANDWIDTH=800000,NAME=&#34;med&#34;
+#EXT-X-STREAM-INF:BANDWIDTH=800000,NAME=&quot;med&quot;
 
 size2.m3u8
 
-#EXT-X-STREAM-INF:BANDWIDTH=1900000,NAME=&#34;best&#34;
+#EXT-X-STREAM-INF:BANDWIDTH=1900000,NAME=&quot;best&quot;
 
 size3.m3u8
 </code></pre><p>chuyển từ ts sang mp4</p>
-<pre tabindex="0"><code>-bsf:a aac_adtstoasc
-</code></pre><!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<pre tabindex=0><code>-bsf:a aac_adtstoasc
+</code></pre>
+<blockquote>
+</blockquote>
 </article>
- 
-      
-
-      <footer class="book-footer">
-        
-  <div class="flex flex-wrap justify-between">
-
-
-
-
-
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
 </div>
-
-
-
-  <script>(function(){function e(n){const e=window.getSelection(),t=document.createRange();t.selectNodeContents(n),e.removeAllRanges(),e.addRange(t)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
-
-
- 
-        
-      </footer>
-
-      
-  
-  <div class="book-comments">
-
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
 </div>
-  
- 
-
-      <label for="menu-control" class="hidden book-menu-overlay"></label>
-    </div>
-
-    
-    <aside class="book-toc">
-      <div class="book-toc-content">
-        
-  
-<nav id="TableOfContents"></nav>
-
-
- 
-      </div>
-    </aside>
-    
-  </main>
-
-  
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents></nav>
+</div>
+</aside>
+</main>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

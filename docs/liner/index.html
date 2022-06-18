@@ -1,0 +1,198 @@
+<!doctype html><html lang=vi-vn dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Nội suy tuyến tính #  Vấn đề: Cho 1 xe khách đi từ vị trí a->b và biết xe khách này đi tới vị trí b mất 5 giây. Vậy khi ở giây thứ 2 xe khách đó sẽ ở vị trí nào trong đoạn a->b? Vị trí a là mét thứ 5, vị trí b mét thứ 12
+Dùng phép nội suy tuyến tính để nội suy xem vị trí xe khách ở đâu trong giây thứ 2.">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Liner">
+<meta property="og:description" content="Nội suy tuyến tính #  Vấn đề: Cho 1 xe khách đi từ vị trí a->b và biết xe khách này đi tới vị trí b mất 5 giây. Vậy khi ở giây thứ 2 xe khách đó sẽ ở vị trí nào trong đoạn a->b? Vị trí a là mét thứ 5, vị trí b mét thứ 12
+Dùng phép nội suy tuyến tính để nội suy xem vị trí xe khách ở đâu trong giây thứ 2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luatle090.github.io/codesite/docs/liner/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2022-06-18T21:13:40+07:00">
+<title>Liner | Code Site</title>
+<link rel=manifest href=/codesite/manifest.json>
+<link rel=icon href=/codesite/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/codesite/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
+<script defer src=/codesite/flexsearch.min.js></script>
+<script defer src=/codesite/en.search.min.e8e8e9de336096fca803684631537fe3ba8244da98ef8e111bdddb4dbd629706.js integrity="sha256-6Ojp3jNglvyoA2hGMVN/47qCRNqY744RG93bTb1ilwY=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/codesite/><span>Code Site</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=/codesite/docs/download-m3u8/>How to download .m3u8</a>
+</li>
+<li>
+<a href=/codesite/docs/java-thread/>Java Thread</a>
+</li>
+<li>
+<a href=/codesite/docs/liner/ class=active>Liner</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/codesite/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Liner</strong>
+<label for=toc-control>
+<img src=/codesite/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#nội-suy-tuyến-tính>Nội suy tuyến tính</a></li>
+<li><a href=#cài-đặt>Cài đặt</a></li>
+<li><a href=#tham-khảo>Tham khảo</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h2 id=nội-suy-tuyến-tính>
+Nội suy tuyến tính
+<a class=anchor href=#n%e1%bb%99i-suy-tuy%e1%ba%bfn-t%c3%adnh>#</a>
+</h2>
+<p>Vấn đề: Cho 1 xe khách đi từ vị trí a->b và biết xe khách này đi tới vị trí b mất 5 giây. Vậy khi ở giây thứ 2 xe khách đó sẽ ở vị trí nào trong đoạn a->b? Vị trí a là mét thứ 5, vị trí b mét thứ 12</p>
+<p>Dùng phép nội suy tuyến tính để nội suy xem vị trí xe khách ở đâu trong giây thứ 2.</p>
+<p>Phép nội suy tuyến tính cho 2 điểm đã biết
+<link rel=stylesheet href=/codesite/katex/katex.min.css>
+<script defer src=/codesite/katex/katex.min.js></script>
+<script defer src=/codesite/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\((x_0,y_0) \)
+</span>
+và <span>
+\( (x_1,y_1)\)
+</span>
+. Và giá trị
+<span>
+\( x \)
+</span>
+là giá trị trong khoảng
+<span>
+\((x_0, x_1)\)
+</span>
+</p>
+<p>Vậy ta có biểu thức</p>
+<span>
+\(\dfrac{y - y_0}{x - x_0}=\dfrac{y_1 - y_0}{x_1 - x_0}\)
+</span>
+<p>Tìm
+<span>
+\(y\)
+</span>
+là giá trị không biết tại giá trị <span>
+\(x\)
+</span>
+</p>
+<span>
+\(y = y_0 + (x - x_0)\dfrac{y_1 - y_0}{x_1 - x_0}\)
+</span>
+<p>Quay trở lại bài toán: ta gọi x thời gian, y biểu diễn cho vị trí. Vậy thế vào phương trình trên ta đc</p>
+<span>
+\(y_0 \rightarrow y_1: 5 \rightarrow 12\)
+</span>
+<p><span>
+\(x_0 \rightarrow x_1: 0 \rightarrow 2 \)
+</span>
+. Hỏi giây x thứ 2 xe khách ở vị trí y nào?</p>
+<ul>
+<li>
+<p>Giải:</p>
+<span>
+\( y = 5 + (2 - 0)\dfrac{12 - 5}{5 - 0}
+\)
+</span>
+</li>
+</ul>
+<h2 id=cài-đặt>
+Cài đặt
+<a class=anchor href=#c%c3%a0i-%c4%91%e1%ba%b7t>#</a>
+</h2>
+<p>Dựa vào biểu thức trên ta có thể cài đặt code như bên dưới</p>
+<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#75715e>// Imprecise method, which does not guarantee v = v1 when t = 1, due to floating-point arithmetic error.
+</span><span style=color:#75715e>// This method is monotonic. This form may be used when the hardware has a native fused multiply-add instruction.
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#66d9ef>float</span> v0, <span style=color:#66d9ef>float</span> v1, <span style=color:#66d9ef>float</span> t) {
+  <span style=color:#66d9ef>return</span> v0 <span style=color:#f92672>+</span> t <span style=color:#f92672>*</span> (v1 <span style=color:#f92672>-</span> v0);
+}
+
+<span style=color:#75715e>// Precise method, which guarantees v = v1 when t = 1. This method is monotonic only when v0 * v1 &lt; 0.
+</span><span style=color:#75715e>// Lerping between same values might not produce the same value
+</span><span style=color:#75715e></span><span style=color:#66d9ef>float</span> <span style=color:#a6e22e>lerp</span>(<span style=color:#66d9ef>float</span> v0, <span style=color:#66d9ef>float</span> v1, <span style=color:#66d9ef>float</span> t) {
+  <span style=color:#66d9ef>return</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>-</span> t) <span style=color:#f92672>*</span> v0 <span style=color:#f92672>+</span> t <span style=color:#f92672>*</span> v1;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=tham-khảo>
+Tham khảo
+<a class=anchor href=#tham-kh%e1%ba%a3o>#</a>
+</h2>
+<pre><code>Tham khảo từ wikipedia https://en.wikipedia.org/wiki/Linear_interpolation</code></pre>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#nội-suy-tuyến-tính>Nội suy tuyến tính</a></li>
+<li><a href=#cài-đặt>Cài đặt</a></li>
+<li><a href=#tham-khảo>Tham khảo</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
