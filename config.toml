@@ -2,3 +2,18 @@ baseURL = 'https://luatle090.github.io/codesite/'
 languageCode = 'vi-vn'
 title = 'Code Site'
 theme = 'hugo-book'
+enableGitInfo = true
+[markup]
+    [markup.tableOfContents]
+        endLevel = 3
+        startLevel = 1
+    [markup.highlight]
+        lineNoStart = 1
+        lineNos = true
+        tabWidth = 4
+        lineNumbersInTable = true
+
+[params]
+    BookDateFormat = '2/January/2006'
+
+    

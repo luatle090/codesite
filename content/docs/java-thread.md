@@ -9,6 +9,7 @@ weight: 1
 # bookSearchExclude: false
 ---
 # I. Thread
+
     Thread 71 sách java network programming
 
 ## 1. Synchronization
@@ -57,7 +58,7 @@ You can synchronize an entire method on the current object (the this reference) 
 > lưu ý từ khóa **synchronized** ở hàm writeEntry
 
 
-```java
+```java {linenos=table,hl_lines=[14]}
 import java.io.*;
 import java.util.*;
 
@@ -115,12 +116,13 @@ Stream readers and writers are objects that can read and write byte streams as c
 ## 4. Accessing Files and Directories
 A FileSystem object encapsulates the file storage system on your computer. The FileSystem class has no public constructors so you need another way to create such an object. You can obtain the FileSystem object that encapsulates the storage system on your machine by calling the getDefault() method.
 
-```java
+```
 FileSystem fileSystem = FileSystems.getDefault();
+
 ```
 A java.nio.file.Path object encapsulates a system-dependent file path to a file or directory. Path is an interface type so you cannot create Path objects directly. You call the getPath() method for a FileSystem object to obtain a Path object encapsulating a given file or directory path:
 
-```java
+```
 Path path = fileSystem.getPath(“C:/Program Files (x86)/Java/jdk1.7.0/src/java/nio/file”);
 ```
 
@@ -128,7 +130,7 @@ You can also create a Path object using the static get() method that is defined 
 
 a Path object from a string, the other creates a Path object from a java.net.URI object.
 
-```java
+```
 Path myPath = Paths.get(“C:/Program Files (x86)/Java/jdk1.7.0/src/java/nio/file”);
 ```
 
@@ -136,19 +138,19 @@ System Properties
 
 - Lấy vị trí thư mục hiện tại
 
-```java
+```
 String currentDir = System.getProperty(“user.dir”);
 ```
 
 - Lấy dấu Slash / hay back slash \ phân cách trong đường dẫn
 
-```java
+```
 String currentDir = System.getProperty(“file.separator”);
 ```
 
 - Lấy user  home
 
-```java
+```
 String currentDir = System.getProperty(“user.home”);
 ```
 
@@ -157,15 +159,15 @@ String currentDir = System.getProperty(“user.home”);
 If the current directory is C:\Projects\Test, the myFile object references the path to the file C:\Projects\Test\dir\output.txt
 
 ```java
-Path myFile = Paths.get(“dir”, “output.txt”);
+Path myFile = Paths.get("dir", "output.txt");
 
-Path myFile = Paths.get(“output.txt”);
+Path myFile = Paths.get("output.txt");
 ```
 
 Tạo thư mục
 
 ```java
-Path path =Paths.get(“newDir”);
+Path path =Paths.get("newDir");
 
 try {
     Files.createDirectory(path);  //import từ package java.nio.file.Files
@@ -186,11 +188,11 @@ The newOutputStream() method opens or creates a file specified by a Path object.
 
 The newBufferedWriter() method opens or creates a file specified by a Path object for writing in text mode. The BufferedWriter object that the method returns provides an efficient way to write textual data to a file.
 
-```java
+```
 BufferedOutputStream fileOut = new BufferedOutputStream(Files.newOutputStream(path));
 ```
 
-### 6. Reading Files
+## 6. Reading Files
 
 You have three ways for reading files, all provided by static methods in the java.nio.file.Files:
 
