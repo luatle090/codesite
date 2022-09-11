@@ -1,0 +1,381 @@
+<!doctype html><html lang=vi-vn dir=ltr>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=description content="Sử dụng VIM #  VIM có 3 mode: Normal, Insert, Visual
+Định nghĩa: #  # là sẽ gõ number ý chỉ số 12 hoặc 35 hoặc 350 &mldr;
+() là các dấu &ldquo;&rdquo;, {}, &lsquo;&rsquo;, &mldr;
+Command: Phím ESC để quay về normal mode, sử dụng phím : để gõ command
+:q : để thoát VIM
+:q!: Thoát và ko save
+:w : Save tập tin
+:wq : Save và thoát">
+<meta name=theme-color content="#FFFFFF">
+<meta name=color-scheme content="light dark"><meta property="og:title" content="Vim">
+<meta property="og:description" content="Sử dụng VIM #  VIM có 3 mode: Normal, Insert, Visual
+Định nghĩa: #  # là sẽ gõ number ý chỉ số 12 hoặc 35 hoặc 350 &mldr;
+() là các dấu &ldquo;&rdquo;, {}, &lsquo;&rsquo;, &mldr;
+Command: Phím ESC để quay về normal mode, sử dụng phím : để gõ command
+:q : để thoát VIM
+:q!: Thoát và ko save
+:w : Save tập tin
+:wq : Save và thoát">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://luatle090.github.io/codesite/docs/vim/"><meta property="article:section" content="docs">
+<meta property="article:modified_time" content="2022-09-11T17:59:53+07:00">
+<title>Vim | Code Site</title>
+<link rel=manifest href=/codesite/manifest.json>
+<link rel=icon href=/codesite/favicon.png type=image/x-icon>
+<link rel=stylesheet href=/codesite/book.min.82c5dbd23447cee0b4c2aa3ed08ce0961faa40e1fa370eee4f8c9f02e0d46b5f.css integrity="sha256-gsXb0jRHzuC0wqo+0Izglh+qQOH6Nw7uT4yfAuDUa18=" crossorigin=anonymous>
+<script defer src=/codesite/flexsearch.min.js></script>
+<script defer src=/codesite/en.search.min.53d0469553e01d5a85f545686a4eba0e6cdfd7695972a6cf1cda9cb271ed909d.js integrity="sha256-U9BGlVPgHVqF9UVoak66Dmzf12lZcqbPHNqcsnHtkJ0=" crossorigin=anonymous></script>
+</head>
+<body dir=ltr>
+<input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control>
+<main class="container flex">
+<aside class=book-menu>
+<div class=book-menu-content>
+<nav>
+<h2 class=book-brand>
+<a class="flex align-center" href=/codesite/><span>Code Site</span>
+</a>
+</h2>
+<div class=book-search>
+<input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/>
+<div class="book-search-spinner hidden"></div>
+<ul id=book-search-results></ul>
+</div>
+<ul>
+<li>
+<a href=/codesite/docs/download-m3u8/>How to download .m3u8</a>
+</li>
+<li>
+<a href=/codesite/docs/java-thread/>Java Thread</a>
+</li>
+<li>
+<a href=/codesite/docs/liner/>Liner</a>
+</li>
+<li>
+<a href=/codesite/docs/vim/ class=active>Vim</a>
+</li>
+</ul>
+</nav>
+<script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+</div>
+</aside>
+<div class=book-page>
+<header class=book-header>
+<div class="flex align-center justify-between">
+<label for=menu-control>
+<img src=/codesite/svg/menu.svg class=book-icon alt=Menu>
+</label>
+<strong>Vim</strong>
+<label for=toc-control>
+<img src=/codesite/svg/toc.svg class=book-icon alt="Table of Contents">
+</label>
+</div>
+<aside class="hidden clearfix">
+<nav id=TableOfContents>
+<ul>
+<li><a href=#sử-dụng-vim>Sử dụng VIM</a>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href=#1-normal-mode>1. Normal mode:</a>
+<ul>
+<li><a href=#nbspnbspdi-chuyển>  Di chuyển:</a></li>
+<li><a href=#nbspnbsp-di-chuyển-theo-từ>   Di chuyển theo từ</a></li>
+<li><a href=#nbspnbsp-di-chuyển-trong-tập-tin-và-dòng>   Di chuyển trong tập tin và dòng</a></li>
+<li><a href=#nbspnbsp-undo>   Undo</a></li>
+<li><a href=#nbspnbsp-redo>   Redo:</a></li>
+<li><a href=#nbspnbsp-delete-or-cut-sử-dụng-combie-với-các-phím-di-chuyển>   Delete Or Cut (sử dụng combie với các phím di chuyển):</a></li>
+<li><a href=#nbspnbsp-copy>   Copy:</a></li>
+<li><a href=#nbspnbsp-paste>   Paste</a></li>
+<li><a href=#nbspnbsp-replace>   Replace:</a></li>
+<li><a href=#nbspnbsp-search-việc-di-chuyển-phụ-thuộc-vào-cách-tìm-kiếm-theo-kiểu-next-or-back>   Search: Việc di chuyển phụ thuộc vào cách tìm kiếm theo kiểu next or back</a></li>
+<li><a href=#nbspnbsp-kiểm-tra-dấu-ngoặc>   Kiểm tra dấu ngoặc</a></li>
+<li><a href=#nbspnbspnbspnbsp-merge>     Merge:</a></li>
+</ul>
+</li>
+<li><a href=#2-insert-mode>2. Insert mode:</a></li>
+<li><a href=#3-visual-mode>3. Visual mode:</a>
+<ul>
+<li><a href=#nbspnbspnbspnbsp-lower-và-upper-case>     Lower và upper case</a></li>
+<li><a href=#nbspnbspnbspnbsp-bôi-đen>     Bôi đen</a></li>
+<li><a href=#nbspnbsp-tab>   Tab</a></li>
+<li><a href=#nbspnbsp-copy-from-vim-to-clipboard>   Copy from Vim to clipboard:</a></li>
+</ul>
+</li>
+<li><a href=#4-dùng-với-visual-studio-code>4. Dùng với visual studio code</a>
+<ul>
+<li><a href=#nbspnbsp-combie-với-visual-code-đa-con-trỏ>   Combie với visual code đa con trỏ:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+</header>
+<article class=markdown><h1 id=sử-dụng-vim>
+Sử dụng VIM
+<a class=anchor href=#s%e1%bb%ad-d%e1%bb%a5ng-vim>#</a>
+</h1>
+<p>VIM có 3 mode: Normal, Insert, Visual</p>
+<h4 id=định-nghĩa>
+Định nghĩa:
+<a class=anchor href=#%c4%91%e1%bb%8bnh-ngh%c4%a9a>#</a>
+</h4>
+<p># là sẽ gõ number ý chỉ số 12 hoặc 35 hoặc 350 &mldr;</p>
+<p>() là các dấu &ldquo;&rdquo;, {}, &lsquo;&rsquo;, &mldr;</p>
+<p>Command: Phím ESC để quay về normal mode, sử dụng phím : để gõ command</p>
+<p>:q : để thoát VIM</p>
+<p>:q!: Thoát và ko save</p>
+<p>:w : Save tập tin</p>
+<p>:wq : Save và thoát</p>
+<p>:set number : Hiển thị number line (Line tuyệt đối)</p>
+<h2 id=1-normal-mode>
+1. Normal mode:
+<a class=anchor href=#1-normal-mode>#</a>
+</h2>
+<h3 id=nbspnbspdi-chuyển>
+  Di chuyển:
+<a class=anchor href=#nbspnbspdi-chuy%e1%bb%83n>#</a>
+</h3>
+<p>hjkl : h left, j down, k up, l right</p>
+<h3 id=nbspnbsp-di-chuyển-theo-từ>
+   Di chuyển theo từ
+<a class=anchor href=#nbspnbsp-di-chuy%e1%bb%83n-theo-t%e1%bb%ab>#</a>
+</h3>
+<p>w: di chuyển tới vị trí đầu của từ.</p>
+<pre><code>Nhấn w sẽ đi tới f ( i i = 0 ; i &lt; 1 ; i +	
+vd: for (int i = 0; i &lt; 10; i++)
+</code></pre>
+<p>W: di chuyển đầu vị trí của token. 1 token là (int</p>
+<pre><code>token: for (int i = 0; i &lt; 10; i++)
+vd: for (int i = 0; i &lt; 10; i++)
+</code></pre>
+<p>b/B giống như w nhưng đi ngược.</p>
+<pre><code>Nhấn b sẽ đi tới + i ; 1 &lt; i ; 0 = i i ( f	
+vd: for (int i = 0; i &lt; 10; i++)
+</code></pre>
+<p>e/E giống w nhưng con trỏ di chuyển tới cuối của từ.</p>
+<pre><code>Nhấn e sẽ đi tới r ( t = 0 ; i &lt; 0 ; i ) 
+vd: for (int = 0; i &lt; 10; i++) 
+</code></pre>
+<h3 id=nbspnbsp-di-chuyển-trong-tập-tin-và-dòng>
+   Di chuyển trong tập tin và dòng
+<a class=anchor href=#nbspnbsp-di-chuy%e1%bb%83n-trong-t%e1%ba%adp-tin-v%c3%a0-d%c3%b2ng>#</a>
+</h3>
+<p>gg: di chuyển về đầu tập tin</p>
+<p>G: Di chuyển về cuối tập tin</p>
+<p>$: di chuyển về đầu dòng kể cả khoảng trắng</p>
+<p>0: di chuyển về cuối dòng kể cả khoảng trắng</p>
+<p>^: di chuyển tới đầu vị trí character đầu tiên trong dòng</p>
+<p>#G : di chuyển tới vị trí # trong tập tin</p>
+<h3 id=nbspnbsp-undo>
+   Undo
+<a class=anchor href=#nbspnbsp-undo>#</a>
+</h3>
+<p>u : sẽ undo toàn bộ last save trong edit mode.
+Nếu edit mode gõ hello world. Thoát edit mode sẽ undo toàn bộ hello world</p>
+<h3 id=nbspnbsp-redo>
+   Redo:
+<a class=anchor href=#nbspnbsp-redo>#</a>
+</h3>
+<p>ctrl + r: phương thức giống undo</p>
+<h3 id=nbspnbsp-delete-or-cut-sử-dụng-combie-với-các-phím-di-chuyển>
+   Delete Or Cut (sử dụng combie với các phím di chuyển):
+<a class=anchor href=#nbspnbsp-delete-or-cut-s%e1%bb%ad-d%e1%bb%a5ng-combie-v%e1%bb%9bi-c%c3%a1c-ph%c3%adm-di-chuy%e1%bb%83n>#</a>
+</h3>
+<p>x: xóa or cut từng chữ</p>
+<p>dw: xóa or cut từ</p>
+<p>dW: xóa or cut token</p>
+<p>dd: xóa or cut toàn bộ line</p>
+<p>d$: xóa or cut từ vị trí con trỏ tới cuối dòng kể cả khoảng trắng</p>
+<p>d0: xóa or cut từ vị trí con trỏ lên đầu dòng kể cả khoảng trắng</p>
+<p>d^: xóa or cut trước vị trí con trỏ lên vị trí đầu tiên của character</p>
+<p>di() (delete inside ngoặc): xóa or cut toàn bộ nội dung trong dấu ngoặc</p>
+<p>da() (delete around ngoặc): xóa or cut toàn bộ ngoặc và nội dung bên trong ngoặc. Tương đương lệnh d%</p>
+<p>:%d: delete or cut toàn bộ tập tin</p>
+<p>dat (delete around tag): xóa toàn bộ tag và nội dung trong tag trong html</p>
+<p>dit (delete inside tag): xóa nội dung bên trong tag trong html</p>
+<p>:#,#d: delete từ dòng # đến dòng #. Số dòng canh theo bên trái</p>
+<hr>
+<p>cc: Xóa or cut toàn bộ dòng nhưng sẽ vào insert mode
+Các chức năng còn lại như d riêng :%c ko nên dùng, vì bất tiện</p>
+<hr>
+<p>s: giống x nhưng sẽ vào insert mode</p>
+<h3 id=nbspnbsp-copy>
+   Copy:
+<a class=anchor href=#nbspnbsp-copy>#</a>
+</h3>
+<p>yy: copy toàn bộ line (để copy theo bôi đen cần vào visual mode)</p>
+<p>:%y: copy toàn bộ tập tin</p>
+<p>yi(): copy toàn bộ nội dung trong dấu ngoặc</p>
+<h3 id=nbspnbsp-paste>
+   Paste
+<a class=anchor href=#nbspnbsp-paste>#</a>
+</h3>
+<p>p: Paste sau con trỏ</p>
+<p>P: Paste trước con trỏ</p>
+<p>ctrl + shift + v: paste từ clipboard sang vim (trong visual)</p>
+<p>+p : trong terminal</p>
+<h3 id=nbspnbsp-replace>
+   Replace:
+<a class=anchor href=#nbspnbsp-replace>#</a>
+</h3>
+<p>r: sử 1 từ</p>
+<p>:s/tim_kiem/thay_the: find trong current line và replace từ đầu tiên match</p>
+<p>:s/tim_kiem/thay_the/g: find trong current line và replace tất cả trong line</p>
+<p>:%s/tim_kiem/thay_the: find trong toàn bộ file và replace từ đầu tiên match</p>
+<p>:%s/tim_kiem/thay_the/g: find trong toàn bộ file và replace tất cả</p>
+<h3 id=nbspnbsp-search-việc-di-chuyển-phụ-thuộc-vào-cách-tìm-kiếm-theo-kiểu-next-or-back>
+   Search: Việc di chuyển phụ thuộc vào cách tìm kiếm theo kiểu next or back
+<a class=anchor href=#nbspnbsp-search-vi%e1%bb%87c-di-chuy%e1%bb%83n-ph%e1%bb%a5-thu%e1%bb%99c-v%c3%a0o-c%c3%a1ch-t%c3%acm-ki%e1%ba%bfm-theo-ki%e1%bb%83u-next-or-back>#</a>
+</h3>
+<p>sử dụng dấu / : /tim_kiem (tìm kiếm theo kiểu next),
+di chuyển khi search: n đi tới. N đi lui</p>
+<p>sử dụng dấu ? : ?tim_kiem (tìm kiếm theo kiểu back),
+di chuyển khi search: n di chuyển lui. N di chuyển tới</p>
+<p>*: nhảy tới từ tiếp theo</p>
+<h3 id=nbspnbsp-kiểm-tra-dấu-ngoặc>
+   Kiểm tra dấu ngoặc
+<a class=anchor href=#nbspnbsp-ki%e1%bb%83m-tra-d%e1%ba%a5u-ngo%e1%ba%b7c>#</a>
+</h3>
+<p>%: nhảy tới dấu ngoặc, có thể combie với d or c để xóa block code</p>
+<p>d%: Bắt buộc phải Di chuyển tới dấu ngoặc rồi mới sử dụng d%.
+Lệnh này tương dương lệnh da()</p>
+<pre><code>vd: for (let i = 0; i &lt; 10; i++) {
+	console.log()
+} . Di chuyển tới dấu ngoặc ( hoặc ) rồi gõ d%
+kết quả: for {
+	console.log()
+}
+</code></pre>
+<h3 id=nbspnbspnbspnbsp-merge>
+     Merge:
+<a class=anchor href=#nbspnbspnbspnbsp-merge>#</a>
+</h3>
+<p>J: merge với dòng bên dưới có khoảng trắng</p>
+<p>gJ: merge dòng bên dưới ko có khoảng trắng</p>
+<h2 id=2-insert-mode>
+2. Insert mode:
+<a class=anchor href=#2-insert-mode>#</a>
+</h2>
+<p>i: insert mode. Chèn trước từ</p>
+<p>a: insert mode. Chèn sau từ</p>
+<p>I: insert mode. con trỏ sẽ Di chuyển về ĐẦU CHỮ CÁI ĐẦU TIÊN của dòng</p>
+<p>A: insert mode. ngược lại với I. di chuyển về cuối</p>
+<p>o: enter và insert mode.</p>
+<p>O: previous enter và insert mode.</p>
+<p>ctrl + w: thụt về đầu dòng (nếu có từ phía trước sẽ loại bỏ các từ phía trước, nếu là khoảng trắng thì sẽ bỏ toàn bộ khoảng trắng)</p>
+<p>ctrl + d: previous tab cho 1 line</p>
+<p>ctrl + t: tab nguyên 1 line</p>
+<h2 id=3-visual-mode>
+3. Visual mode:
+<a class=anchor href=#3-visual-mode>#</a>
+</h2>
+<p>Là chế độ bôi đen.</p>
+<p>v : chuyển sang visual mode (bôi đen character)</p>
+<p>V : chuyển sang visual mode (bôi đen toàn bộ line)</p>
+<p>y: copy phần bôi đen</p>
+<p>d: delete phần bôi đen</p>
+<h3 id=nbspnbspnbspnbsp-lower-và-upper-case>
+     Lower và upper case
+<a class=anchor href=#nbspnbspnbspnbsp-lower-v%c3%a0-upper-case>#</a>
+</h3>
+<p>u: lower case</p>
+<p>U: upper case</p>
+<h3 id=nbspnbspnbspnbsp-bôi-đen>
+     Bôi đen
+<a class=anchor href=#nbspnbspnbspnbsp-b%c3%b4i-%c4%91en>#</a>
+</h3>
+<p>aB: bôi đen phần {}</p>
+<p>ab: bôi đen phần ()</p>
+<h3 id=nbspnbsp-tab>
+   Tab
+<a class=anchor href=#nbspnbsp-tab>#</a>
+</h3>
+<p>>: tab</p>
+<p>&lt;: previous tab</p>
+<h3 id=nbspnbsp-copy-from-vim-to-clipboard>
+   Copy from Vim to clipboard:
+<a class=anchor href=#nbspnbsp-copy-from-vim-to-clipboard>#</a>
+</h3>
+<p>&ldquo;*y: bôi đen từ và dùng &ldquo;*y để copy</p>
+<h2 id=4-dùng-với-visual-studio-code>
+4. Dùng với visual studio code
+<a class=anchor href=#4-d%c3%b9ng-v%e1%bb%9bi-visual-studio-code>#</a>
+</h2>
+<h3 id=nbspnbsp-combie-với-visual-code-đa-con-trỏ>
+   Combie với visual code đa con trỏ:
+<a class=anchor href=#nbspnbsp-combie-v%e1%bb%9bi-visual-code-%c4%91a-con-tr%e1%bb%8f>#</a>
+</h3>
+<p>alt + up/down: di chuyển dòng</p>
+<p>ctrl + alt + up/down: tạo đa con trỏ</p>
+<p>ctrl + shift + v: paste từ clipboard sang vim (trong visual)</p>
+</article>
+<footer class=book-footer>
+<div class="flex flex-wrap justify-between">
+</div>
+<script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+</footer>
+<div class=book-comments>
+</div>
+<label for=menu-control class="hidden book-menu-overlay"></label>
+</div>
+<aside class=book-toc>
+<div class=book-toc-content>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#sử-dụng-vim>Sử dụng VIM</a>
+<ul>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href=#1-normal-mode>1. Normal mode:</a>
+<ul>
+<li><a href=#nbspnbspdi-chuyển>  Di chuyển:</a></li>
+<li><a href=#nbspnbsp-di-chuyển-theo-từ>   Di chuyển theo từ</a></li>
+<li><a href=#nbspnbsp-di-chuyển-trong-tập-tin-và-dòng>   Di chuyển trong tập tin và dòng</a></li>
+<li><a href=#nbspnbsp-undo>   Undo</a></li>
+<li><a href=#nbspnbsp-redo>   Redo:</a></li>
+<li><a href=#nbspnbsp-delete-or-cut-sử-dụng-combie-với-các-phím-di-chuyển>   Delete Or Cut (sử dụng combie với các phím di chuyển):</a></li>
+<li><a href=#nbspnbsp-copy>   Copy:</a></li>
+<li><a href=#nbspnbsp-paste>   Paste</a></li>
+<li><a href=#nbspnbsp-replace>   Replace:</a></li>
+<li><a href=#nbspnbsp-search-việc-di-chuyển-phụ-thuộc-vào-cách-tìm-kiếm-theo-kiểu-next-or-back>   Search: Việc di chuyển phụ thuộc vào cách tìm kiếm theo kiểu next or back</a></li>
+<li><a href=#nbspnbsp-kiểm-tra-dấu-ngoặc>   Kiểm tra dấu ngoặc</a></li>
+<li><a href=#nbspnbspnbspnbsp-merge>     Merge:</a></li>
+</ul>
+</li>
+<li><a href=#2-insert-mode>2. Insert mode:</a></li>
+<li><a href=#3-visual-mode>3. Visual mode:</a>
+<ul>
+<li><a href=#nbspnbspnbspnbsp-lower-và-upper-case>     Lower và upper case</a></li>
+<li><a href=#nbspnbspnbspnbsp-bôi-đen>     Bôi đen</a></li>
+<li><a href=#nbspnbsp-tab>   Tab</a></li>
+<li><a href=#nbspnbsp-copy-from-vim-to-clipboard>   Copy from Vim to clipboard:</a></li>
+</ul>
+</li>
+<li><a href=#4-dùng-với-visual-studio-code>4. Dùng với visual studio code</a>
+<ul>
+<li><a href=#nbspnbsp-combie-với-visual-code-đa-con-trỏ>   Combie với visual code đa con trỏ:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</aside>
+</main>
+</body>
+</html>
